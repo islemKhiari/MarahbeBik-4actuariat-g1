@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7acf66c-6590-41b5-a039-a8dbe7324ac0" name="Changes" comment="" />
+    <list default="true" id="f7acf66c-6590-41b5-a039-a8dbe7324ac0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/Avis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/Avis/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/Avis/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/Avis/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -25,6 +38,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3MQNwMRe8GQYSQmCwA9EvXSW7XY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,7 +63,7 @@
     "git-widget-placeholder": "feature/avis",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Lenovo/Desktop/4Actuariat/MarahbeBik-4actuariat-g1/Backend",
+    "last_opened_file_path": "C:/Users/Lenovo/Desktop/4Actuariat/MarahbeBik-4actuariat-g1/Backend/microservices/Avis/src/main/java/tn/esprit/avis/avis",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,10 +79,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Desktop\4Actuariat\MarahbeBik-4actuariat-g1\Backend\microservices\Avis\src\main\java\tn\esprit\avis\avis" />
       <recent name="C:\Users\Lenovo\Desktop\projet web distribué\MarahbeBik-4actuariat-g1\Backend\discovery" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AvisApplication">
+    <configuration name="AvisApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Avis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8093" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AvisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Avis" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
@@ -81,6 +106,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.AvisApplication" />
+      <item itemvalue="Spring Boot.AvisApplication (1)" />
+      <item itemvalue="Spring Boot.DiscoveryApplication" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -93,7 +123,8 @@
       <workItem from="1795302222271" duration="1419000" />
       <workItem from="1795303745383" duration="141000" />
       <workItem from="1795303938110" duration="814000" />
-      <workItem from="1795381439261" duration="402000" />
+      <workItem from="1795381439261" duration="2334000" />
+      <workItem from="1795475684461" duration="5822000" />
     </task>
     <servers />
   </component>
