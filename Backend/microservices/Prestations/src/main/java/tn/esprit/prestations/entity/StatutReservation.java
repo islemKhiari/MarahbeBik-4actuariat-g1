@@ -1,4 +1,4 @@
-package tn.esprit.prestations.entities;
+package tn.esprit.prestations.entity;
 
 public enum StatutReservation {
     CONFIRMEE,
