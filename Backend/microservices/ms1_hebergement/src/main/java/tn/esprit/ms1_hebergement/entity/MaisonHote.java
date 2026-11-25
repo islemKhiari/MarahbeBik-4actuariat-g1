@@ -1,10 +1,7 @@
 package tn.esprit.ms1_hebergement.entity;
 
-
-
-
 import jakarta.persistence.*;
-        import lombok.Getter;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -34,13 +31,14 @@ public class MaisonHote {
     @Column(nullable = false)
     private String adresse;
 
-    // Liste d'URLs ; la première sert de photo principale
+    // Liste d'URLs : la première est la photo principale (@OrderColumn garde l'ordre)
     @ElementCollection
     @CollectionTable(name = "maison_photo", joinColumns = @JoinColumn(name = "maison_id"))
+    @OrderColumn(name = "position")
     @Column(name = "url", nullable = false)
     private List<String> photos = new ArrayList<>();
 
-    // "sub" du token Keycloak : simple texte, pas de clé étrangère
+    // id de l'utilisateur Keycloak : simple texte, pas de clé étrangère
     @Column(name = "proprietaire_id", nullable = false)
     private String proprietaireId;
 
