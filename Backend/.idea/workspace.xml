@@ -20,6 +20,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -47,6 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AvisApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -56,14 +58,17 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.AvisApplication (1).executor": "Run",
     "Spring Boot.AvisApplication.executor": "Run",
+    "Spring Boot.AvisInsrance1.executor": "Run",
+    "Spring Boot.AvisInstance2.executor": "Run",
     "Spring Boot.DiscoveryApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "feature/avis",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Lenovo/Desktop/4Actuariat/MarahbeBik-4actuariat-g1/Backend/microservices/Avis/src/main/java/tn/esprit/avis/avis",
+    "last_opened_file_path": "C:/Users/Lenovo/Desktop/4Actuariat/projet web commun/MarahbeBik-4actuariat-g1/Backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,17 +89,38 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AvisApplication">
-    <configuration name="AvisApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="AvisApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.avis.avis.AvisApplication" />
       <module name="Avis" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
-      <option name="VM_PARAMETERS" value="-Dserver.port=8093" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.avis.avis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AvisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="AvisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false" nameIsGenerated="true">
       <module name="Avis" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AvisInsrance1" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Avis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8097" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AvisInstance2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Avis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tn.esprit.avis.avis.AvisApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8098" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,10 +133,17 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.AvisApplication" />
       <item itemvalue="Spring Boot.AvisApplication" />
-      <item itemvalue="Spring Boot.AvisApplication (1)" />
+      <item itemvalue="Spring Boot.AvisInstance2" />
+      <item itemvalue="Spring Boot.AvisInsrance1" />
       <item itemvalue="Spring Boot.DiscoveryApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AvisApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -124,7 +157,9 @@
       <workItem from="1795303745383" duration="141000" />
       <workItem from="1795303938110" duration="814000" />
       <workItem from="1795381439261" duration="2334000" />
-      <workItem from="1795475684461" duration="5822000" />
+      <workItem from="1795475684461" duration="6599000" />
+      <workItem from="1795513501254" duration="56000" />
+      <workItem from="1795720492939" duration="2334000" />
     </task>
     <servers />
   </component>
