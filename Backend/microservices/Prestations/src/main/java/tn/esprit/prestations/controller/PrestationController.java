@@ -1,11 +1,9 @@
-
 package tn.esprit.prestations.controller;
 
 import tn.esprit.prestations.dto.PrestationDTO;
-import tn.esprit.prestations.entity.Prestation;
-import tn.esprit.prestations.mapper.PrestationMapper;
 import tn.esprit.prestations.service.PrestationService;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,41 +13,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/prestations")
 @CrossOrigin(origins = "*")
+@AllArgsConstructor
 public class PrestationController {
 
     private final PrestationService prestationService;
-    private final PrestationMapper prestationMapper;
-
-    public PrestationController(
-            PrestationService prestationService,
-            PrestationMapper prestationMapper) {
-        this.prestationService = prestationService;
-        this.prestationMapper = prestationMapper;
-    }
 
     // Ajouter une prestation
     @PostMapping
     public ResponseEntity<PrestationDTO> ajouter(
             @RequestBody PrestationDTO dto) {
 
-        Prestation prestation = prestationMapper.toEntity(dto);
-        Prestation saved = prestationService.ajouterPrestation(prestation);
-
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(prestationMapper.toDTO(saved));
+                .body(prestationService.ajouterPrestation(dto));
     }
 
     // Afficher toutes les prestations
     @GetMapping
     public ResponseEntity<List<PrestationDTO>> afficherToutes() {
 
-        List<PrestationDTO> prestations =
-                prestationService.afficherPrestations()
-                        .stream()
-                        .map(prestationMapper::toDTO)
-                        .toList();
-
-        return ResponseEntity.ok(prestations);
+        return ResponseEntity.ok(
+                prestationService.afficherPrestations());
     }
 
     // Afficher une prestation par ID
@@ -57,10 +40,8 @@ public class PrestationController {
     public ResponseEntity<PrestationDTO> afficherParId(
             @PathVariable Long id) {
 
-        return prestationService.afficherPrestationParId(id)
-                .map(prestationMapper::toDTO)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(
+                prestationService.afficherPrestationParId(id));
     }
 
     // Modifier une prestation
@@ -69,11 +50,8 @@ public class PrestationController {
             @PathVariable Long id,
             @RequestBody PrestationDTO dto) {
 
-        Prestation prestation = prestationMapper.toEntity(dto);
-        Prestation updated =
-                prestationService.modifierPrestation(id, prestation);
-
-        return ResponseEntity.ok(prestationMapper.toDTO(updated));
+        return ResponseEntity.ok(
+                prestationService.modifierPrestation(id, dto));
     }
 
     // Supprimer une prestation

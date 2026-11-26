@@ -1,10 +1,10 @@
-
 package tn.esprit.prestations.dto;
 
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +20,6 @@ public class PrestationDTO {
     private Integer capaciteMax;
     private Long hebergementId;
     private String categorie;
+
+    private List<Long> reservationIds;
 }

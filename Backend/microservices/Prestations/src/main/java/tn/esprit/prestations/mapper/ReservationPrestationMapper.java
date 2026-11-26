@@ -1,9 +1,7 @@
-
 package tn.esprit.prestations.mapper;
 
 import tn.esprit.prestations.dto.ReservationPrestationDTO;
 import tn.esprit.prestations.entity.ReservationPrestation;
-import tn.esprit.prestations.entity.Prestation;
 import tn.esprit.prestations.entity.StatutReservation;
 
 import org.springframework.stereotype.Component;
@@ -45,12 +43,6 @@ public class ReservationPrestationMapper {
             reservation.setStatut(
                     StatutReservation.valueOf(dto.getStatut())
             );
-        }
-
-        if (dto.getPrestationId() != null) {
-            Prestation prestation = new Prestation();
-            prestation.setId(dto.getPrestationId());
-            reservation.setPrestation(prestation);
         }
 
         return reservation;

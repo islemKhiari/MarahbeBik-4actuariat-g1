@@ -1,9 +1,9 @@
-
 package tn.esprit.prestations.mapper;
 
 import tn.esprit.prestations.dto.PrestationDTO;
 import tn.esprit.prestations.entity.Prestation;
 import tn.esprit.prestations.entity.CategoriePrestation;
+import tn.esprit.prestations.entity.ReservationPrestation;
 
 import org.springframework.stereotype.Component;
 
@@ -21,9 +21,15 @@ public class PrestationMapper {
                 prestation.getDate(),
                 prestation.getCapaciteMax(),
                 prestation.getHebergementId(),
+
                 prestation.getCategorie() != null
                         ? prestation.getCategorie().name()
-                        : null
+                        : null,
+
+                prestation.getReservations()
+                        .stream()
+                        .map(ReservationPrestation::getId)
+                        .toList()
         );
     }
 

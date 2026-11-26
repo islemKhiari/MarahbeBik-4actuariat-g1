@@ -1,87 +1,128 @@
-
 package tn.esprit.prestations.service;
 
+import tn.esprit.prestations.dto.ReservationPrestationDTO;
 import tn.esprit.prestations.entity.Prestation;
 import tn.esprit.prestations.entity.ReservationPrestation;
+import tn.esprit.prestations.exception.ResourceNotFoundException;
+import tn.esprit.prestations.mapper.ReservationPrestationMapper;
 import tn.esprit.prestations.repository.PrestationRepository;
 import tn.esprit.prestations.repository.ReservationPrestationRepository;
 
-import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class ReservationPrestationService {
 
     private final ReservationPrestationRepository reservationRepository;
     private final PrestationRepository prestationRepository;
+    private final ReservationPrestationMapper reservationMapper;
 
-    public ReservationPrestationService(
-            ReservationPrestationRepository reservationRepository,
-            PrestationRepository prestationRepository) {
-        this.reservationRepository = reservationRepository;
-        this.prestationRepository = prestationRepository;
-    }
+    // Ajouter une reservation
+    public ReservationPrestationDTO ajouterReservation(
+            ReservationPrestationDTO dto) {
 
-    // Ajouter une réservation
-    public ReservationPrestation ajouterReservation(ReservationPrestation reservation) {
+        Prestation prestation = getPrestation(dto.getPrestationId());
 
-        Long prestationId = reservation.getPrestation().getId();
+        ReservationPrestation reservation =
+                reservationMapper.toEntity(dto);
 
-        Prestation prestation = prestationRepository.findById(prestationId)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("Prestation introuvable"));
+        reservation.setId(null);
 
         reservation.setPrestation(prestation);
+        prestation.getReservations().add(reservation);
 
-        return reservationRepository.save(reservation);
+        return reservationMapper.toDTO(
+                reservationRepository.save(reservation));
     }
 
-    // Afficher toutes les réservations
+    // Afficher toutes les reservations
     @Transactional(readOnly = true)
-    public List<ReservationPrestation> afficherReservations() {
-        return reservationRepository.findAll();
+    public List<ReservationPrestationDTO> afficherReservations() {
+
+        return reservationRepository.findAll()
+                .stream()
+                .map(reservationMapper::toDTO)
+                .toList();
     }
 
-    // Afficher une réservation par ID
+    // Afficher une reservation par ID
     @Transactional(readOnly = true)
-    public Optional<ReservationPrestation> afficherReservationParId(Long id) {
-        return reservationRepository.findById(id);
+    public ReservationPrestationDTO afficherReservationParId(Long id) {
+
+        return reservationMapper.toDTO(getReservation(id));
     }
 
-    // Modifier une réservation
-    public ReservationPrestation modifierReservation(
-            Long id, ReservationPrestation nouvelleReservation) {
+    // Modifier une reservation
+    public ReservationPrestationDTO modifierReservation(
+            Long id, ReservationPrestationDTO dto) {
 
-        ReservationPrestation reservation = reservationRepository.findById(id)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("Réservation introuvable"));
+        ReservationPrestation reservation = getReservation(id);
 
-        Long prestationId = nouvelleReservation.getPrestation().getId();
+        Prestation anciennePrestation = reservation.getPrestation();
+        Prestation nouvellePrestation =
+                getPrestation(dto.getPrestationId());
 
-        Prestation prestation = prestationRepository.findById(prestationId)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("Prestation introuvable"));
+        ReservationPrestation nouvelle =
+                reservationMapper.toEntity(dto);
 
-        reservation.setVoyageurId(nouvelleReservation.getVoyageurId());
-        reservation.setNombrePlaces(nouvelleReservation.getNombrePlaces());
-        reservation.setDateReservation(nouvelleReservation.getDateReservation());
-        reservation.setStatut(nouvelleReservation.getStatut());
-        reservation.setPrestation(prestation);
+        reservation.setVoyageurId(nouvelle.getVoyageurId());
+        reservation.setNombrePlaces(nouvelle.getNombrePlaces());
+        reservation.setDateReservation(nouvelle.getDateReservation());
+        reservation.setStatut(nouvelle.getStatut());
 
-        return reservationRepository.save(reservation);
-    }
+        // Gestion de la relation bidirectionnelle
+        if (!Objects.equals(anciennePrestation.getId(),
+                nouvellePrestation.getId())) {
 
-    // Supprimer une réservation
-    public void supprimerReservation(Long id) {
-        if (!reservationRepository.existsById(id)) {
-            throw new EntityNotFoundException("Réservation introuvable");
+            anciennePrestation.getReservations().remove(reservation);
+            nouvellePrestation.getReservations().add(reservation);
+            reservation.setPrestation(nouvellePrestation);
         }
 
-        reservationRepository.deleteById(id);
+        return reservationMapper.toDTO(
+                reservationRepository.save(reservation));
+    }
+
+    // Supprimer une reservation
+    public void supprimerReservation(Long id) {
+
+        ReservationPrestation reservation = getReservation(id);
+
+        reservation.getPrestation()
+                .getReservations()
+                .remove(reservation);
+
+        reservationRepository.delete(reservation);
+    }
+
+    // Recuperer une reservation
+    private ReservationPrestation getReservation(Long id) {
+
+        return reservationRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Reservation", id));
+    }
+
+    // Recuperer une prestation
+    private Prestation getPrestation(Long id) {
+
+        if (id == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "L'identifiant de la prestation est obligatoire");
+        }
+
+        return prestationRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Prestation", id));
     }
 }

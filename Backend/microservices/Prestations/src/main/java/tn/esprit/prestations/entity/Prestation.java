@@ -1,4 +1,3 @@
-
 package tn.esprit.prestations.entity;
 
 import jakarta.persistence.*;
@@ -6,6 +5,8 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "prestations")
@@ -36,4 +37,7 @@ public class Prestation {
 
     @Enumerated(EnumType.STRING)
     private CategoriePrestation categorie;
+
+    @OneToMany(mappedBy = "prestation", fetch = FetchType.LAZY)
+    private List<ReservationPrestation> reservations = new ArrayList<>();
 }
