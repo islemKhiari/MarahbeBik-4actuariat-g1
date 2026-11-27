@@ -2,6 +2,7 @@ package tn.esprit.avis.avis.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ import java.util.List;
 @RequestMapping("/api/avis")
 @RequiredArgsConstructor
 public class AvisController {
+    @Autowired
+    private org.springframework.core.env.Environment environment;
 
     private final IAvisService avisService;
 
@@ -37,6 +40,10 @@ public class AvisController {
     @GetMapping("/{id}")
     public ResponseEntity<AvisResponseDTO> getAvisById(@PathVariable Long id) {
         return ResponseEntity.ok(avisService.getAvisById(id));
+    }
+    @GetMapping("/port")
+    public String getPort() {
+        return "Réponse depuis l'instance Avis sur le port : " + environment.getProperty("local.server.port");
     }
 
     @GetMapping
@@ -73,4 +80,6 @@ public class AvisController {
     public ResponseEntity<AvisResponseDTO> repondreAvis(@PathVariable Long id, @Valid @RequestBody ReponseRequestDTO dto) {
         return ResponseEntity.ok(avisService.repondreAvis(id, dto));
     }
+
+
 }
