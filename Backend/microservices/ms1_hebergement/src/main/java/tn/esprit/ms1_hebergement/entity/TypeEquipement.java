@@ -1,6 +1,6 @@
 package tn.esprit.ms1_hebergement.entity;
 
-
+//commentaire
 public enum TypeEquipement {
     PETIT_DEJEUNER,
     DEMI_PENSION,

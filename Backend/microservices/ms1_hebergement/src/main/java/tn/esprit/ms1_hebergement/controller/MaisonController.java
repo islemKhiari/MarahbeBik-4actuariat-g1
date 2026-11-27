@@ -51,4 +51,5 @@ public class MaisonController {
         maisonService.supprimer(id);
         return ResponseEntity.noContent().build();
     }
+    //commentaire
 }

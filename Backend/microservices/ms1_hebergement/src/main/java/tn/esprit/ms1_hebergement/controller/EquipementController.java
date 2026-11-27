@@ -44,4 +44,5 @@ public class EquipementController {
         equipementService.supprimer(id);
         return ResponseEntity.noContent().build();
     }
+    //commentaire
 }

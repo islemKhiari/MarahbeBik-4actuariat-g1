@@ -1,7 +1,7 @@
 package tn.esprit.ms1_hebergement.dto;
 
 import java.util.List;
-
+//commentaire
 public record MaisonResponse(
         Long id,
         String nom,

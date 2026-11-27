@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>ms1_hebergement</name>
     <description>Microservice de gestion des maisons d'hotes, chambres et equipements</description>
-
+    <!--commentaire-->
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2026.0.0</spring-cloud.version>

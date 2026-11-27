@@ -24,4 +24,5 @@ public class OpenApiConfig {
                         .contact(new Contact().name("islem khiari")))
                 .servers(List.of(new Server().url("http://localhost:" + port).description("Local")));
     }
+    //commentaire
 }

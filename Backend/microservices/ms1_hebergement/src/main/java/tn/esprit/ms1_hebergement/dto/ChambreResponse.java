@@ -5,7 +5,7 @@ import tn.esprit.ms1_hebergement.entity.TypeChambre;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+//commentaire
 public record ChambreResponse(
         Long id,
         Long maisonId,
