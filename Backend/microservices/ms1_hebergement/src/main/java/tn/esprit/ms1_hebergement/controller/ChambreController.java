@@ -46,4 +46,5 @@ public class ChambreController {
         chambreService.supprimer(id);
         return ResponseEntity.noContent().build();
     }
+    //commentaira
 }
