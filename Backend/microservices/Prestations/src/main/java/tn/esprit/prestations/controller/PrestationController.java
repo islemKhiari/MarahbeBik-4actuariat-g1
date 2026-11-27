@@ -1,5 +1,6 @@
 package tn.esprit.prestations.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import tn.esprit.prestations.dto.PrestationDTO;
 import tn.esprit.prestations.service.PrestationService;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class PrestationController {
+
 
     private final PrestationService prestationService;
 
@@ -44,6 +46,11 @@ public class PrestationController {
                 prestationService.afficherPrestationParId(id));
     }
 
+    @GetMapping("/port")
+    public String getPort(HttpServletRequest request) {
+        return "Réponse depuis Prestations - Port : "
+                + request.getLocalPort();
+    }
     // Modifier une prestation
     @PutMapping("/{id}")
     public ResponseEntity<PrestationDTO> modifier(

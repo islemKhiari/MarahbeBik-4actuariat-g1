@@ -1,5 +1,6 @@
 package tn.esprit.ms2_reservation.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,12 @@ public class ReservationController {
     @GetMapping("/{id}")
     public ReservationResponse trouver(@PathVariable Long id) {
         return reservationService.trouver(id);
+    }
+
+    @GetMapping("/port")
+    public String getPort(HttpServletRequest request) {
+        return "Réponse depuis Reservation - Port : "
+                + request.getLocalPort();
     }
 
     @PostMapping
