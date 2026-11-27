@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7acf66c-6590-41b5-a039-a8dbe7324ac0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/Prestations/src/main/java/tn/esprit/prestations/controller/PrestationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/Prestations/src/main/java/tn/esprit/prestations/controller/PrestationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/Prestations/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/Prestations/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/ms2_reservation/src/main/java/tn/esprit/ms2_reservation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/ms2_reservation/src/main/java/tn/esprit/ms2_reservation/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/ms2_reservation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/ms2_reservation/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/Recommandation/app/controller/recommandation_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/Recommandation/app/controller/recommandation_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,8 +120,9 @@
               <entry key="AvisInsrance1" value="STOPPED" />
               <entry key="AvisInstance2" value="STOPPED" />
               <entry key="DiscoveryApplication" value="STOPPED" />
-              <entry key="GatewayApplication" value="FAILED" />
+              <entry key="GatewayApplication" value="STOPPED" />
               <entry key="Ms2ReservationApplication" value="STOPPED" />
+              <entry key="Ms2ReservationApplication8095" value="STOPPED" />
               <entry key="PrestationsApplication" value="STOPPED" />
               <entry key="PrestationsApplication8093" value="STOPPED" />
               <entry key="PrestationsApplication8094" value="STOPPED" />
@@ -279,11 +274,14 @@
       <workItem from="1795513501254" duration="56000" />
       <workItem from="1795720492939" duration="9270000" />
       <workItem from="1795768585437" duration="138000" />
-      <workItem from="1795799853361" duration="4342000" />
+      <workItem from="1795799853361" duration="7078000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.py" />
   </component>
 </project>
