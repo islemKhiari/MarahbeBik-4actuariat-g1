@@ -1,5 +1,6 @@
 package tn.esprit.ms1_hebergement.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,12 @@ public class MaisonController {
     @GetMapping("/{id}")
     public MaisonResponse trouver(@PathVariable Long id) {
         return maisonService.trouver(id);
+    }
+
+    @GetMapping("/port")
+    public String getPort(HttpServletRequest request) {
+        return "Reponse depuis Hebergement - Port : "
+                + request.getLocalPort();
     }
 
     @GetMapping("/proprietaire/{proprietaireId}")
